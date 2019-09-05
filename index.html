@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Carros Usados | Home</title>
     <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
 <body>
@@ -22,31 +23,77 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Quem somos</a>
+                        <a class="nav-link" href="somos.html">Quem somos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Produtos e serviços</a>
+                        <a class="nav-link" href="carros.html">Carros</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Carros</a>
+                        <a class="nav-link" href="fale.html">Fale conosco</a>
                     </li>
                 </ul>
             </div>
         </nav>
     </header>
 
-    <div class="container">
-        <div class="card bg-dark text-light mt-5 border-0">
-            <img src="assets/images/uno-escada.jpg" class="card-img" alt="Uno com Escada" style="height: 300px; overflow: hidden;">
-            <div class="text-center card-img-overlay">
-                <h1 class="card-title">Bem vindo ao Carros Usados!</h1>
-                <p class="lead card-text">O melhor lugar para encontrar e comprar carros usados, com o maior conforto e 100% de
-                    confiança!</p>
+    <div class="jumbotron">
+        <div class="container d-none d-lg-block">
+            <div class="card bg-dark mt-5 text-light border-0">
+                <img src="assets/images/uno-escada.jpg" class="card-img" alt="Uno com Escada"
+                    style="height: 300px; overflow: hidden;">
+                <div class="text-center card-img-overlay mt-5">
+                    <h1 class="card-title">Bem vindo(a) ao Carros Usados!</h1>
+                    <p class="lead card-text">O melhor lugar para encontrar e comprar carros usados, com o maior
+                        conforto e 100% de
+                        confiança!</p>
+                </div>
             </div>
         </div>
+
+        <div class="d-lg-none container text-center">
+            <h1>Bem vindo(a) ao Carros Usados!</h1>
+            <p class="lead">O melhor lugar para encontrar e comprar carros usados, com o maior
+                conforto e 100% de
+                confiança!</p>
+        </div>
+
+        <div class="container mt-5">
+            <h3>Aqui, nós temos de tudo!</h3>
+            <p>Carros manuais, automáticos, novos, antigos, nacionais e importados. Escolha a sua marca preferida e veja
+                os modelos!</p>
+        </div>
+
+        <div id="marcas" class="d-none d-md-block">
+            <h4 class="text-center">Marcas disponíveis:</h4>
+
+            <div id="carrossel-marcas" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="assets/images/honda-carousel.jpg" class="d-block w-100" alt="Honda"
+                            style="height:300px; object-fit: cover">
+                        <div class="carousel-caption">
+                            <h3 class="mb-4 text-dark">Honda</h3>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="assets/images/ford-carousel.jpg" class="d-block w-100" alt="Ford"
+                            style="height:300px; object-fit: cover">
+                        <div class="carousel-caption">
+                            <h3 class="mb-4 text-light">Ford</h3>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="assets/images/mais-carousel.jpg" class="d-block w-100" alt="Ford"
+                            style="height:300px; object-fit: cover">
+                        <div class="carousel-caption">
+                            <h3 class="mb-4 text-dark">E muito mais!</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h4 class="text-center">O que está esperando? <a href="carros.html">Clique aqui</a> e veja os carros disponíveis!</h4>
     </div>
-
-
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
