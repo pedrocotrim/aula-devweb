@@ -36,12 +36,37 @@
 		</nav>
 	</header>
 
+	<!-- O alerta será mostrado com jquery posteriormente -->
+	<div class="alert alert-primary" role="alert">
+		Obrigado pelo seu interesse!
+	</div>
+
 	<div class="jumbotron">
 		<div class="container text-center">
 			<h2>Tem alguma dúvida? Gostaria de ser um de nossos vendedores?</h2>
 			<h5>Entre em contato conosco pelo formulário abaixo!</h5>
 			<form>
 				<div class="form-group">
+					<!-- A div progress será uma barra de progresso atualizada conforme o form é preenchido, usando jquery posteriormente -->
+					<div class="progress">
+						<div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+					</div>
+					<div class="progress">
+						<div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0"
+							aria-valuemax="100"></div>
+					</div>
+					<div class="progress">
+						<div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0"
+							aria-valuemax="100"></div>
+					</div>
+					<div class="progress">
+						<div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0"
+							aria-valuemax="100"></div>
+					</div>
+					<div class="progress">
+						<div class="progress-bar" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0"
+							aria-valuemax="100"></div>
+					</div>
 					<label for="exampleFormControlInput1">Email(Obrigatório)</label>
 					<input type="email" class="form-control" id="exampleFormControlInput1" placeholder="nome@exemplo.com.br">
 				</div>
