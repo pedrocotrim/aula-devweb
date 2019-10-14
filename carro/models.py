@@ -21,3 +21,11 @@ class Carro(models.Model):
 
   def __str__(self):
     return "{} {}".format(self.nome,self.ano)
+
+class Imagem(models.Model):
+  caminho = models.CharField(max_length=50)
+  pagina = models.CharField(max_length=50)
+
+class Text(models.Model):
+  texto = models.TextField()
+  pagina = models.CharField(max_length=50)

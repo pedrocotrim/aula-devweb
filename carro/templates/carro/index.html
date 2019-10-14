@@ -8,28 +8,23 @@
 <div class="jumbotron">
   <div class="container d-none d-lg-block">
     <div class="card bg-dark mt-5 text-light border-0">
-      <img src="{% static 'carro/images/uno-escada.jpg' %}" class="card-img" alt="Uno com Escada"
+      <img src="{{ imagens.0.caminho }}" class="card-img" alt="Uno com Escada"
         style="height: 300px; overflow: hidden;">
       <div class="text-center card-img-overlay mt-5">
-        <h1 class="card-title">Bem vindo(a) ao Carros Usados!</h1>
-        <p class="lead card-text">O melhor lugar para encontrar e comprar carros usados, com o maior
-          conforto e 100% de
-          confiança!</p>
+        <h1 class="card-title">{{text.0.texto}}</h1>
+        <p class="lead card-text">{{text.1.texto}}</p>
       </div>
     </div>
   </div>
 
   <div class="d-lg-none container text-center">
-    <h1>Bem vindo(a) ao Carros Usados!</h1>
-    <p class="lead">O melhor lugar para encontrar e comprar carros usados, com o maior
-      conforto e 100% de
-      confiança!</p>
+    <h1>{{text.0.texto}}</h1>
+    <p class="lead">{{text.1.texto}}!</p>
   </div>
 
   <div class="container mt-5">
-    <h3>Aqui, nós temos de tudo!</h3>
-    <p>Carros manuais, automáticos, novos, antigos, nacionais e importados. Escolha a sua marca preferida e veja
-      os modelos!</p>
+    <h3>{{text.2.texto}}</h3>
+    <p>{{text.3.texto}}</p>
   </div>
 
   <div id="marcas" class="d-none d-md-block">
@@ -38,21 +33,21 @@
     <div id="carrossel-marcas" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="{% static 'carro/images/honda-carousel.jpg' %}" class="d-block w-100" alt="Honda"
+          <img src="{{imagens.1.caminho}}" class="d-block w-100" alt="Honda"
             style="height:300px; object-fit: cover">
           <div class="carousel-caption">
             <h3 class="mb-4 text-dark">Honda</h3>
           </div>
         </div>
         <div class="carousel-item">
-          <img src="{% static 'carro/images/ford-carousel.jpg' %}" class="d-block w-100" alt="Ford"
+          <img src="{{imagens.2.caminho}}" class="d-block w-100" alt="Ford"
             style="height:300px; object-fit: cover">
           <div class="carousel-caption">
             <h3 class="mb-4 text-light">Ford</h3>
           </div>
         </div>
         <div class="carousel-item">
-          <img src="{% static 'carro/images/mais-carousel.jpg' %}" class="d-block w-100" alt="Ford"
+          <img src="{{imagens.3.caminho}}" class="d-block w-100" alt="Ford"
             style="height:300px; object-fit: cover">
           <div class="carousel-caption">
             <h3 class="mb-4 text-dark">E muito mais!</h3>
