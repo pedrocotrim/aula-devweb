@@ -14,10 +14,10 @@ class Carro(models.Model):
   nome = models.CharField(max_length=64)
   slug = models.SlugField(max_length=200)
   desc = models.TextField()
-  vendedor = models.models.ForeignKey(Vendedor, on_delete=models.CASCADE)
+  vendedor = models.ForeignKey(Vendedor, on_delete=models.CASCADE)
   preco = models.IntegerField()
   ano = models.IntegerField()
-  quilometragem = models.DecimalField()
+  quilometragem = models.DecimalField(decimal_places=2, max_digits=5)
 
   def __str__(self):
     return "{} {}".format(self.nome,self.ano)

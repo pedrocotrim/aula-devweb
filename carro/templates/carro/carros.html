@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block titulo %}Carros{% endblock %}
+
+{% block conteudo %}
+<div class="container text-center text-dark mt-5 mb-5">
+  <h1>Confira aqui os carros disponíveis!</h1>
+  <table class="table table-hover">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">Marca</th>
+        <th scope="col">Modelo</th>
+        <th scope="col">Ano</th>
+        <th scope="col">Vendedor</th>
+        <th scope="col">Condição</th>
+        <th scope="col">Preço</th>
+        <th scope="col">Detalhes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">Chevrolet</th>
+        <td>Corvette</td>
+        <td>2017</td>
+        <td>Marcos</td>
+        <td>Seminovo</td>
+        <td>R$100000,00</td>
+        <td><a href="#"><button type="button" class="btn btn-success">Clique aqui!</button></a></td>
+      </tr>
+      <tr>
+        <th scope="row">Ford</th>
+        <td>Focus</td>
+        <td>2015</td>
+        <td>Marcos</td>
+        <td>Seminovo</td>
+        <td>R$40000,00</td>
+        <td><a href="#"><button type="button" class="btn btn-success">Clique aqui!</button></a></td>
+      </tr>
+      <tr>
+        <th scope="row">Hyundai</th>
+        <td>Veloster</td>
+        <td>2016</td>
+        <td>Marcos</td>
+        <td>Novo</td>
+        <td>R$80000,00</td>
+        <td><a href="#"><button type="button" class="btn btn-success">Clique aqui!</button></a></td>
+      </tr>
+    </tbody>
+  </table>
+  <!-- Será implementado com jquery para atualizar a tabela -->
+  <button class="btn btn-primary" type="button" disabled>
+    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+    <span class="sr-only">Carregando</span>
+  </button>
+</div>
+{% endblock %}
