@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'carro',
+    'autenticacao',
 ]
 
 MIDDLEWARE = [
@@ -100,6 +101,14 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+
+LOGIN_URL='/autenticacao/login/'
+LOGIN_REDIRECT_URL = '/'             # default: /accounts/profile/
+LOGOUT_REDIRECT_URL = '/'
+
+DATE_INPUT_FORMATS = ['%d/%m/%Y']
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/

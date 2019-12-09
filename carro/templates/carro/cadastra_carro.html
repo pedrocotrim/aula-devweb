@@ -1,0 +1,150 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block titulo %}
+    Cadastro de Carros
+{% endblock %}
+
+{% block conteudo %}
+    <div class="row">
+        <div class="col-12">
+            <h4 class="mb-2">Cadastro de Carros</h4>
+            <hr class="mb-4">
+        </div>
+    </div>
+
+    {% if messages %}
+        <div class="row mb-3">
+            <div class="col-12">
+                {% for message in messages %}
+                    <ul class="list-group rounded {{ message.tags }}">
+                        {# Supondo a utilização de apenas info e danger #}
+                        <li style="padding-top: 7px; padding-bottom: 7px;"
+                            class="list-group-item list-group-item-{% if message.tags == 'info' %}info{% else %}danger{% endif %}">
+                            {{ message }}
+                        </li>
+                    </ul>
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
+
+
+    <div class="form-group row" style="margin-bottom: 10px;">
+        <label for="id_nome" class="col-lg-2 col-form-label font-weight-bold">Marca</label>
+        <div class="col-lg-10">
+            {{ form.marca }}
+            {% if form.marca.errors %}
+                <div class="alert alert-danger mb-0" style="padding-top: 2px; padding-bottom: 2px;">
+                    {% for error in form.nome.errors %}
+                        <small>{{ error }}</small>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+        <div class="form-group row" style="margin-bottom: 10px;">
+            <label for="id_nome" class="col-lg-2 col-form-label font-weight-bold">Modelo</label>
+            <div class="col-lg-10">
+                {{ form.nome }}
+                {% if form.nome.errors %}
+                    <div class="alert alert-danger mb-0" style="padding-top: 2px; padding-bottom: 2px;">
+                        {% for error in form.nome.errors %}
+                            <small>{{ error }}</small>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+
+        {#  <input type="text"                               #}
+        {#     name="nome"                                  #}
+        {#     id="id_nome"                                 #}
+        {#     class="form-control form-control-sm"          #}
+        {#     maxlength="10"                                #}
+        {#     required>                                     #}
+
+        <div class="form-group row" style="margin-bottom: 10px;">
+            <label for="id_preco" class="col-lg-2 col-form-label font-weight-bold">Preço</label>
+            <div class="col-lg-10">
+                {{ form.preco }}
+                {% if form.preco.errors %}
+                    <div class="alert alert-danger mb-0" style="padding-top: 2px; padding-bottom: 2px;">
+                        {% for error in form.preco.errors %}
+                            <small>{{ error }}</small>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+
+        {#  <input type="text"                               #}
+        {#     name="preco"                                #}
+        {#     id="id_preco"                               #}
+        {#     class="form-control form-control-sm"          #}
+        {#     maxlength="10"                                #}
+        {#     required>                                     #}
+
+        <div class="form-group row" style="margin-bottom: 10px;">
+            <label for="id_preco" class="col-lg-2 col-form-label font-weight-bold">Ano</label>
+            <div class="col-lg-10">
+                {{ form.ano }}
+                {% if form.ano.errors %}
+                    <div class="alert alert-danger mb-0" style="padding-top: 2px; padding-bottom: 2px;">
+                        {% for error in form.preco.errors %}
+                            <small>{{ error }}</small>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="form-group row" style="margin-bottom: 10px;">
+            <label for="id_preco" class="col-lg-2 col-form-label font-weight-bold">Quilometragem</label>
+            <div class="col-lg-10">
+                {{ form.quilometragem }}
+                {% if form.quilometragem.errors %}
+                    <div class="alert alert-danger mb-0" style="padding-top: 2px; padding-bottom: 2px;">
+                        {% for error in form.preco.errors %}
+                            <small>{{ error }}</small>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="form-group row" style="margin-bottom: 10px;">
+            <label for="id_preco" class="col-lg-2 col-form-label font-weight-bold">Preço</label>
+            <div class="col-lg-10">
+                {{ form.desc }}
+                {% if form.desc.errors %}
+                    <div class="alert alert-danger mb-0" style="padding-top: 2px; padding-bottom: 2px;">
+                        {% for error in form.preco.errors %}
+                            <small>{{ error }}</small>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+        </div>                         
+           <div class='col-lg-7'></div>                                 
+        </div>                                                                                                                 
+
+        <div class="form-group row" style="margin-top: 20px;">
+            <div class="col-lg-10 offset-lg-2">
+                {% csrf_token %}
+                <button id="botao" type="submit" class="btn btn-primary">
+                    {% if form.carro_id.value %}
+                       Alterar
+                    {% else %}
+                       Cadastrar
+                    {% endif %}
+                </button>
+            </div>
+        </div>
+    </form>
+
+{% endblock %}
+
+{% block domready %}
+
+{% endblock %}
