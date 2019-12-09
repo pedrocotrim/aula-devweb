@@ -32,8 +32,10 @@ def lista_carro(request):
   if (form.is_valid()):
     busca_por = form.cleaned_data['busca_por']
     lista_de_carros = Carro.objects.filter(nome__icontains=busca_por).order_by('nome')
-
-    paginator = Paginator(lista_de_carros, 5)
+    items_por_pagina = request.GET.get('numItens')
+    if not items_por_pagina:
+      items_por_pagina = 5
+    paginator = Paginator(lista_de_carros, items_por_pagina)
     pagina = request.GET.get('pagina')
     carros = paginator.get_page(pagina)
 
@@ -77,7 +79,8 @@ def cadastra_carro(request):
 
 def exibe_carro(request, id):
   carro = get_object_or_404(Carro, pk=id)
-  form_remove_carro = RemoveCarroForm(initial={'carro_id': id})
+  form_remove_carro = RemoveCarroForm()
+  form_remove_carro.fields['carro_id'].initial = id
   return render(request, 'carro/exibe_carro.html', {
       'carro': carro,
       'form_remove_carro': form_remove_carro

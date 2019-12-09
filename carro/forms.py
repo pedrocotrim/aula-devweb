@@ -31,8 +31,8 @@ class CarroForm(forms.ModelForm):
 
   desc = forms.CharField(
       error_messages={'required': 'Campo obrigatório.', },
-      widget=forms.TextInput(
-          attrs={'class': 'form-control form-control-sm', 'maxlength': '120'}),
+      widget=forms.Textarea(
+          attrs={'class': 'form-control form-control-sm',}),
       required=True)
 
   marca = forms.CharField(
@@ -77,4 +77,5 @@ class CarroForm(forms.ModelForm):
 class RemoveCarroForm(forms.Form):
   class Meta:
       fields = ('carro_id')
-      carro_id = forms.CharField(widget=forms.HiddenInput(), required=True)
+    
+  carro_id = forms.CharField(widget=forms.HiddenInput(), required=True)

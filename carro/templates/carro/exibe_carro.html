@@ -2,8 +2,6 @@
 
 {% load static %}
 
-{% load filtros %}
-
 {% block titulo %}
    Cadastro de Carros
 {% endblock %}
@@ -71,20 +69,16 @@
          <div class="col-12">
             <div class="form-inline">
                <a id="botao_editar" href="{% url 'carro:edita_carro' carro.id %}" class="btn btn-primary mr-3">
-                  <img src="{% static 'carro/images/skin/database_edit.png' %}" />
                   Editar
                </a>
-
-               {% if carro.user == request.user %}
                   <form id="form_remove_carro" style="margin-bottom: 0px;" action="{% url 'carro:remove_carro' %}"
                      method="post" novalidate>
                      {% csrf_token %}
 
                      <button id="botao_remover" type="button" class="btn btn-danger">
-                        <img src="{% static 'carro/images/skin/database_delete.png' %}" /> Remover
+                        Remover
                      </button>
                   </form>
-               {% endif %}
             </div>
          </div>
       </div>
