@@ -60,12 +60,13 @@ padding-right: 0px !important;
   {% if carros %}
   <h4>Confira aqui os carros disponíveis!</h4>
   <form id="paginator">
-    <label for="numItens">Itens por página:</label>
-    <select class="form-control" id="numItens" name="numItens">
-      <option value="5">5</option>
-      <option value="10">10</option>
-      <option value="15">15</option>
-    </select>
+    <label for="numItens">Itens por página: 
+      <select class="form-control" id="numItens" name="numItens">
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="15">15</option>
+      </select>
+    </label>
   </form>
   <table style='width:100%' class='table table-hover'>
     <thead class="thead-light">
@@ -167,7 +168,8 @@ alert(lista_de_ids + " - " + lista_de_ids[ind])
 $(form).append(input)
 $(form).submit()
 })
-let paginas = $("#paginator")
-
+let num_elem = $("#paginator")
+let selecao = $("#numItens")
+selecao.change(function(){$("#paginator").submit();console.log($(this).children('option:selected').val())})
 
 {% endblock %}
