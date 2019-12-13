@@ -41,6 +41,7 @@ def lista_carro(request):
 
     lista_de_ids = []
     for carro in carros:
+      carro.preco = "{:.2f}".format(carro.preco/100).replace('.',',')
       lista_de_ids.append(carro.id)
 
     return render(request, 'carro/pesquisa_carro.html', {

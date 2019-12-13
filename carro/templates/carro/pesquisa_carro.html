@@ -155,6 +155,12 @@ padding-right: 0px !important;
 {% endblock %}
 
 {% block domready %}
+
+function get(name){
+  if(name=(new RegExp('[?&]'+encodeURIComponent(name)+'=([^&]*)')).exec(location.search))
+     return decodeURIComponent(name[1]);
+}
+
 let form
 $(".remover").click(function() {
 form = $(this).parent()
@@ -168,8 +174,14 @@ alert(lista_de_ids + " - " + lista_de_ids[ind])
 $(form).append(input)
 $(form).submit()
 })
-let num_elem = $("#paginator")
 let selecao = $("#numItens")
-selecao.change(function(){$("#paginator").submit();console.log($(this).children('option:selected').val())})
+selecao.change(function(){
+  let form_paginas = $("#paginator"); 
+  if(get("busca_por")!= undefined){
+    let replicar_busca = `<input type='hidden' name='busca_por' value='${get("busca_por")}'>`
+    form_paginas.append(replicar_busca);
+  }
+  form_paginas.submit();
+})
 
 {% endblock %}
