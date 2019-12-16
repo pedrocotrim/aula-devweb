@@ -49,6 +49,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'autenticacao.middleware.LoginRequiredMiddleware'
 ]
 
 ROOT_URLCONF = 'desenvolvimentoweb.urls'
@@ -123,6 +124,7 @@ USE_L10N = True
 
 USE_TZ = True
 
+CARRINHO_SESSION_ID='carrinho'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/

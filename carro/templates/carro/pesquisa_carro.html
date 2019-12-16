@@ -112,7 +112,6 @@ padding-right: 0px !important;
         <td width='15%' class='text-right pr-2'>
           <form style='margin-bottom: 0px;' action="{% url 'carro:remove_carro' %}" method='post' novalidate>
             {% csrf_token %}
-            {# {{ form_remove_carro.carro_id }} #}
             <button type='button' class='btn btn-sm btn-danger remover'>
               Remover
             </button>
@@ -170,7 +169,6 @@ $("#btn-submit").click(function(){
 let lista_de_ids = {{ lista_de_ids }}
 let ind = $(form).parent().parent().index()
 let input = "<input type='hidden' name='carro_id' value='" + lista_de_ids[ind] + "'>"
-alert(lista_de_ids + " - " + lista_de_ids[ind])
 $(form).append(input)
 $(form).submit()
 })

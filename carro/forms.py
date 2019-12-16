@@ -2,7 +2,6 @@ from django import forms
 from django.core.validators import RegexValidator
 from .models import Carro
 from desenvolvimentoweb import settings
-from datetime import datetime, timedelta
 
 
 class PesquisaCarroForm(forms.Form):
@@ -79,3 +78,23 @@ class RemoveCarroForm(forms.Form):
       fields = ('carro_id')
     
   carro_id = forms.CharField(widget=forms.HiddenInput(), required=True)
+
+class RemoveCarroDoCarrinhoForm(forms.Form):
+    class Meta:
+        fields = ('carro_id')
+
+    carro_id = forms.CharField(widget=forms.HiddenInput(), required=True)
+
+class QuantidadeForm(forms.Form):
+    class Meta:
+        fields = ('quantidade', 'carro_id')
+    carro_id = forms.CharField(widget=forms.HiddenInput())
+
+    quantidade = forms.IntegerField(
+        min_value=1,
+        max_value=1000,
+        error_messages={'required': 'Campo obrigatório.', },
+        widget=forms.TextInput(attrs={'class': 'form-control form-control-sm quantidade',
+                                      'maxlength': '20',
+                                      'onkeypress': 'return event.charCode >= 48 && event.charCode <= 57'}),
+        required=True)

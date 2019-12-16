@@ -3,29 +3,30 @@
 {% load static %}
 
 {% block titulo %}
-   Cadastro de Carros
+Cadastro de Carros
 {% endblock %}
 
 {% block conteudo %}
+<div class="container">
    <div style="margin-bottom: 15px;">
       <h4 style="margin-bottom: 10px;">Cadastro de Carros</h4>
       <hr style="margin-bottom: 0px;">
    </div>
 
    {% if messages %}
-      <div class="row mb-3">
-         <div class="col-12">
-            {% for message in messages %}
-            <ul class="list-group rounded {{ message.tags }}">
-               {# Supondo a utilização de apenas info e danger #}
-               <li style="padding-top: 7px; padding-bottom: 7px;"
-                  class="list-group-item list-group-item-{% if message.tags == 'info' %}info{% else %}danger{% endif %}">
-                  {{ message }}
-               </li>
-            </ul>
-            {% endfor %}
-         </div>
+   <div class="row mb-3">
+      <div class="col-12">
+         {% for message in messages %}
+         <ul class="list-group rounded {{ message.tags }}">
+            {# Supondo a utilização de apenas info e danger #}
+            <li style="padding-top: 7px; padding-bottom: 7px;"
+               class="list-group-item list-group-item-{% if message.tags == 'info' %}info{% else %}danger{% endif %}">
+               {{ message }}
+            </li>
+         </ul>
+         {% endfor %}
       </div>
+   </div>
    {% endif %}
 
    <div class="row mb-3">
@@ -64,30 +65,44 @@
       </div>
    </div>
 
-   {% if form_remove_carro %}
-      <div class="form-group row" style="margin-bottom: 0px;">
-         <div class="col-12">
-            <div class="form-inline">
-               <a id="botao_editar" href="{% url 'carro:edita_carro' carro.id %}" class="btn btn-primary mr-3">
-                  Editar
-               </a>
-                  <form id="form_remove_carro" style="margin-bottom: 0px;" action="{% url 'carro:remove_carro' %}"
-                     method="post" novalidate>
-                     {% csrf_token %}
+   <div class="form-group row" style="margin-bottom: 0px;">
+      <div class="col-12">
+         <div class="form-inline">
+            {% if form_remove_carro %}
+            <a id="botao_editar" href="{% url 'carro:edita_carro' carro.id %}" class="btn btn-primary mr-3">
+               Editar
+            </a>
+            <form id="form_remove_carro" style="margin-bottom: 0px;" action="{% url 'carro:remove_carro' %}"
+               method="post" novalidate>
+               {% csrf_token %}
 
-                     <button id="botao_remover" type="button" class="btn btn-danger">
-                        Remover
-                     </button>
-                  </form>
-            </div>
+               <button id="botao_remover" type="button" class="btn btn-danger">
+                  Remover
+               </button>
+            </form>
+            <form class="mx-auto" id="form_adiciona_carrinho" style="width: 60px;" action="{% url 'carro:adicionar_ao_carrinho' %}" method="POST"
+               novalidate>
+               {% csrf_token %}
+               {{ form.quantidade }}
+               <button style="margin-top: 0px; margin-bottom: 0px; padding-top: 3px; padding-bottom: 3px;" type="button"
+                  class="btn btn-sm btn-success" id="adicionar">
+                  Adicionar ao Carrinho
+               </button>
+            </form>
+            {% endif %}
          </div>
       </div>
-   {% endif %}
+   </div>
+</div>
 {% endblock %}
 
 {% block domready %}
-   $("#botao_remover").click(function() {
-      $("#form_remove_carro").append('{{ form_remove_carro.carro_id }}')
-      $("#form_remove_carro").submit()
-   })
+$("#botao_remover").click(function() {
+$("#form_remove_carro").append('{{ form_remove_carro.carro_id }}')
+$("#form_remove_carro").submit()
+});
+$("#adicionar").click(function() {
+   $("#form_adiciona_carrinho").append('{{ form.carro_id }}')
+   $("#form_adiciona_carrinho").submit()
+});
 {% endblock %}
